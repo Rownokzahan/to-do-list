@@ -22,3 +22,13 @@ taskList.addEventListener('click', function (e) {
 document.getElementById('new-task-btn').addEventListener('click', function () {
     addForm.classList.toggle('hidden');
 });
+
+// Remove Task
+taskList.addEventListener('click', function (e) {
+    const removeIcon = e.target.closest('.remove-icon');
+    if (!removeIcon) {
+        return;
+    }
+    taskList.removeChild(e.target.closest('li'));
+});
+
