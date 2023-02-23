@@ -71,4 +71,19 @@ taskList.addEventListener('click', function (e) {
     }
     updateForm.querySelector('textarea[name="task"]').value = taskName;
     updateForm.classList.remove('hidden');
+    updateForm.querySelector('input[type=hidden]').value = taskName;
+});
+
+// Update Task
+updateForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const oldtask = updateForm.querySelector('input[type=hidden]').value;
+    const updatetask = updateForm.querySelector('textarea[name="task"]').value;
+
+    for (task of taskList.childNodes) {
+        if (task.innerText == oldtask) {
+            task.querySelector('p').innerText = updatetask;
+            updateForm.classList.add('hidden');
+        }
+    }
 });
