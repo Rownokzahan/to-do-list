@@ -79,6 +79,10 @@ updateForm.addEventListener('submit', function (e) {
     e.preventDefault();
     const oldtask = updateForm.querySelector('input[type=hidden]').value;
     const updatetask = updateForm.querySelector('textarea[name="task"]').value;
+    if(updatetask == ''){
+        alert('Please Enter a Task');
+        return;
+    }
 
     for (task of taskList.childNodes) {
         if (task.innerText == oldtask) {
