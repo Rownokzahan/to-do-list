@@ -60,3 +60,15 @@ taskList.addEventListener('click', function (e) {
     }
     taskList.removeChild(e.target.closest('li'));
 });
+
+
+// Show task
+taskList.addEventListener('click', function (e) {
+    const updateIcon = e.target.closest('.update-icon');
+    const taskName = e.target.closest('li').innerText;
+    if (!updateIcon) {
+        return;
+    }
+    updateForm.querySelector('textarea[name="task"]').value = taskName;
+    updateForm.classList.remove('hidden');
+});
